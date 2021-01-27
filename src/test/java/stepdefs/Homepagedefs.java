@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Properties;
 
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import configurations.Configreader;
 import factory.Driverfactory;
@@ -31,6 +33,7 @@ public class Homepagedefs {
 	HPpage hpg;
 	Desktoppage dp;
 	Initialpage ip;
+	WebDriverWait wt;
 	
 	@Before
 	public void instantiate() throws IOException {
@@ -42,6 +45,7 @@ public class Homepagedefs {
 		props = Configreader.readConfig();
 		ip = new Initialpage(Driverfactory.returnDriver());
 		dp = new  Desktoppage(Driverfactory.returnDriver());
+		wt = new WebDriverWait(Driverfactory.returnDriver(), 50);
 		
 	}
 	
@@ -119,10 +123,11 @@ public class Homepagedefs {
 
 	    @Then("^HP laptop page should get displayed$")
 	    public void hp_laptop_page_should_get_displayed()  {
-	        String title = acts.returnPageTitle();
+	      
 	        
 	       String tit = props.getProperty("HP_Page");
-	       
+	       wt.until(ExpectedConditions.titleIs(tit));
+	       String title = acts.returnPageTitle();
 	       System.out.println(title);
 	       System.out.println(tit);
 	       
