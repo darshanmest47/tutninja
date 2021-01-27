@@ -43,5 +43,9 @@ public class ActionsClass {
 	public void clearValue(WebElement ele) {
 		ele.clear();
 	}
+	
+	public void refreshPage() {
+		driver.navigate().refresh();
+	}
 
 }
