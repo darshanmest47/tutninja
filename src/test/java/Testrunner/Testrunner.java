@@ -10,7 +10,8 @@ import io.cucumber.junit.CucumberOptions;
 glue = {"stepdefs","Apphooks"},
 dryRun = false,
 monochrome = true,
-plugin = {"pretty","rerun:target/rerun.txt","html:target/report.html"}
+plugin = {"pretty"},
+tags = ""
 
 		)
 

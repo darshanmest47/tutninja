@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Properties;
 
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import configurations.Configreader;
 import factory.Driverfactory;
@@ -31,6 +33,7 @@ public class Homepagedefs {
 	HPpage hpg;
 	Desktoppage dp;
 	Initialpage ip;
+	WebDriverWait wt;
 	
 	@Before
 	public void instantiate() throws IOException {
@@ -42,6 +45,7 @@ public class Homepagedefs {
 		props = Configreader.readConfig();
 		ip = new Initialpage(Driverfactory.returnDriver());
 		dp = new  Desktoppage(Driverfactory.returnDriver());
+		wt = new WebDriverWait(Driverfactory.returnDriver(), 50);
 		
 	}
 	
@@ -119,10 +123,11 @@ public class Homepagedefs {
 
 	    @Then("^HP laptop page should get displayed$")
 	    public void hp_laptop_page_should_get_displayed()  {
-	        String title = acts.returnPageTitle();
+	      
 	        
 	       String tit = props.getProperty("HP_Page");
-	       
+	       wt.until(ExpectedConditions.titleIs(tit));
+	       String title = acts.returnPageTitle();
 	       System.out.println(title);
 	       System.out.println(tit);
 	       
@@ -148,8 +153,33 @@ public class Homepagedefs {
 	    public void user_must_be_able_to_see_the_qty_entered_by_him_in_the_cart_with_respecive_amount()  {
 	        Assert.assertTrue(hpg.userValdisp());
 	    }
+	    
+	    
+	    
+// 27-01-2021 @Darshan
+	    
+	    @Then("^User clicks on the cart button$")
+	    public void user_clicks_on_the_cart_button() {
+	       hp.clickCart();
+	    }
 
-	
+	    @Then("^User Verifies if item is removed correctly$")
+	    public void user_verifies_if_item_is_removed_correctly() throws InterruptedException  {
+	    	  Thread.sleep(5000);
+		       acts.refreshPage();
+		       hp.clickCart();
+		       boolean status=hp.itemRemoved();
+		       System.out.println(status);
+	        
+	    }
+
+	    @And("^User clicks on Remove Button if any item is available$")
+	    public void user_clicks_on_remove_button_if_any_item_is_available() throws InterruptedException  {
+	        hp.clickRemove();
+	      
+	    }
+
+	 // 27-01-2021 @Darshan	
 	
 	
 	
