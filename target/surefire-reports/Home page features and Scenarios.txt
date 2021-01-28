@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: Home page features and Scenarios
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 150.443 s - in Home page features and Scenarios
