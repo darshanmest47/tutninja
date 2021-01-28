@@ -10,7 +10,8 @@ import io.cucumber.junit.CucumberOptions;
 glue = {"stepdefs","Apphooks"},
 dryRun = false,
 monochrome = true,
-plugin = {"pretty"},
+plugin = {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+		"timeline:test-output-thread/"},
 tags = ""
 
 		)
