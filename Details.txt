@@ -1,0 +1,30 @@
+//28-01-20201 @Darshanmesta
+
+
+Hello All,
+
+This is a simple web automation framework designed and developed using
+Cucumber BDD with Selenium WebDriver and Java this framework contains reporting and is integrated
+With CI/CD tool named Jenkins and is hosted on github please find the URL down below
+
+Git URL: https://github.com/darshanmest47/tutninja
+
+Thanks,
+Darshan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//28-01-20201 @Darshanmesta
