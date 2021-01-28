@@ -57,8 +57,9 @@ public class HPpage {
 		acts.enterData(qty, quan+"");
 	}
 	
-	public void clickCart() {
+	public void clickCart() throws InterruptedException {
 		acts.clcikElement(cart);
+		Thread.sleep(3000);
 	}
 	
 	public boolean successDisp() {

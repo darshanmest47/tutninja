@@ -95,7 +95,7 @@ public class Homepagedefs {
 	    }
 
 	    @When("^User clicks on Add to cart button$")
-	    public void user_clicks_on_add_to_cart_button() {
+	    public void user_clicks_on_add_to_cart_button() throws InterruptedException {
 	        hpg.clickCart();
 	    }
 
